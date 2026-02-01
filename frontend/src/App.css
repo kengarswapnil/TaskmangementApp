@@ -1,0 +1,117 @@
+.customLogin{
+   height: auto;
+   width: 350px;
+   border: 1px solid black;
+   padding: 20px;
+   margin: auto;
+   box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.08),
+    0 4px 10px rgba(0, 0, 0, 0.04);
+
+  border: 1px solid #eef1f6;
+}
+
+body{
+  font-family: "Saira", sans-serif;
+}
+
+
+.customColor{
+  color: #5b6df8;
+}
+
+
+.customLogo{
+  height: 70px;
+  width: 150px;
+}
+
+.customFont{
+  font-size: 20px;
+  color: #25335A;
+}
+
+.customBtn{
+  background: linear-gradient(
+    90deg,
+    #5b6df8 0%,
+    #6677ff 100%
+  );
+ color: white;
+}
+
+
+.customLogin button{
+   /* Blue Gradient */
+  background: linear-gradient(
+    90deg,
+    #5b6df8 0%,
+    #6677ff 100%
+  );
+
+  transition: 0.3s;
+}
+
+
+.customInput{
+  width: 350px;
+}
+
+.custombtn{
+ background: linear-gradient(
+    90deg,
+    #5b6df8 0%,
+    #6677ff 100%
+  );
+
+}
+
+
+.CustomCard{
+  height: 100px;
+  width: 150px;
+  border: 1px solid black;
+  margin: 10px;
+   box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.08),
+    0 4px 10px rgba(0, 0, 0, 0.04);
+
+  border: 1px solid #eef1f6;
+}
+
+
+ .FaUsersColor{
+   color: linear-gradient(
+    90deg,
+    #5b6df8 0%,
+    #6677ff 100% 
+  ) ;
+}
+
+.custom-card {
+  width: 260px;
+  height: 120px;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+}
+
+.icon-box {
+  width: 70px;
+  height: 70px;
+  background: #e4e7f2;
+  border-radius: 12px;
+  color: #4a6cf7;
+}
+
+.text-section h3 {
+  margin: 0;
+  font-weight: 600;
+  font-size: 28px;
+}
+
+.text-section p {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
