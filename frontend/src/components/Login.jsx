@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { getlogin } from "../api/api";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const [loginData, setloginData] = useState({
@@ -20,17 +22,27 @@ const Login = () => {
   const handleSubmit = async (e) => {
     try {
       const data = await getlogin(loginData);
+
+      if (!data.success) {
+        toast.error(data.message || "Invalid email or password ❌");
+        return;
+      }
+
+      toast.success("Login Successful 🎉");
       localStorage.setItem("token", data.token);
 
-      navigate("/dashboard");
+      setTimeout(() => {
+        navigate("/dashboard/home");
+      }, 1500);
     } catch (error) {
       console.log(error);
+      toast.error(
+        error?.response?.data?.message || "Invalid email or password ❌"
+      );
     }
   };
 
-  useEffect(()=>{
-    handleSubmit();
-  },[])
+
   return (
     <>
       <div className="customLogin mt-5 rounded">
@@ -58,6 +70,7 @@ const Login = () => {
         <p>
           Don't have an account? <Link to="/register">Register</Link>
         </p>
+        <ToastContainer position="top-right" autoClose={2000} />
       </div>
     </>
   );
