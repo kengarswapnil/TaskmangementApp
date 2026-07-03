@@ -16,7 +16,7 @@ const User = sequelize.define(
     email: {
       type: DataTypes.STRING,
       allownull: false,
-      unique: true,
+      // unique: true,
     },
     password: {
       type: DataTypes.STRING,
@@ -27,6 +27,10 @@ const User = sequelize.define(
       defaultValue: "user",
       allownull: false,
     },
+    ProfileImg:{
+      type:DataTypes.STRING,
+      allowNull:true
+    }
   },
   { timestamps: true, tableName: "User" },
 );

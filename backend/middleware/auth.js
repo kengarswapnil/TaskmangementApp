@@ -3,10 +3,9 @@ require("dotenv").config();
 
 const auth = async (req, res, next) => {
   try {
-    console.log(req.headers.authorization);
     let token = req.headers.authorization;
-    if(!req.headers.authorization){
-      res.status(400).send({msg:"Please Login"})
+    if (!req.headers.authorization) {
+      res.status(400).send({ msg: "Please Login" });
     }
     if (!token.startsWith("Bearer")) {
       res.status(400).send({ msg: "Not authorized" });
@@ -24,14 +23,12 @@ const auth = async (req, res, next) => {
   }
 };
 
+const admin = async (req, res, next) => {
+  if (req.user.role === "admin") {
+    next();
+  } else {
+    res.status(400).send({ msg: "Not authorized" });
+  }
+};
 
-
-const admin = async(req,res)=>{
- if(req.user.role === 'admin'){
-  return next();
- }else{
-  res.status(400).send({msg:"Not authorized"})
- }
-}
-
-module.exports = { auth ,admin };
+module.exports = { auth, admin };

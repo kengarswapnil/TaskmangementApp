@@ -1,7 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { createTask } from "../api/api";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const AddTask = () => {
   const [data, setData] = useState({
     title: "",
@@ -16,13 +17,16 @@ const AddTask = () => {
     });
   }
 
+
+  const notify = (msg) => toast.success(msg);
+
   const handleSubmit = async () => {
     const res = await createTask(data);
     console.log(res)
     if (res?.success) {
-      alert("Task Created Successfully");
+      notify("Task Created Successfully");
 
-      setTask({
+      setData({
         title: "",
         description: "",
         startDate: "",
@@ -32,42 +36,51 @@ const AddTask = () => {
   }
 
   return (
-    <div>
-      <h4 className="text-start m-2">ADD Tasks</h4>
+    <div className="container ">
+      <h4 className="text-start m-1 fw-bold text-primary">ADD Tasks</h4>
 
-      <div className="m-5">
+      <div className="card shadow p-4">
 
-        <div className="d-flex justify-content-between">
-          <div class="mb-3">
-            <label for="floatingInput">Title</label>
-            <input type="text" value={data.title} onChange={handleChange} class="form-control  customInput" name="title" id="floatingInput" />
+        <div className="row">
+          <div className="col-md-6 mb-3">
+            <label className="form-label">Title</label>
+            <input type="text" value={data.title} onChange={handleChange} className="form-control  customInput" name="title" id="floatingInput" />
           </div>
 
-          <div class=" mb-3">
-            <label for="floatingPassword">StratDate</label>
+          <div className="col-md-6 mb-3">
+            <label className="form-label">Start Date</label>
             <input
               type="date"
               name="startDate"
               value={data.startDate}
               onChange={handleChange}
-              class="form-control customInput"
+              className="form-control customInput"
               id="floatingPassword"
 
             />
 
           </div>
-        </div><div class="mb-3">
-          <label for="floatingInput">EndDate</label>
-          <input type="date" name="endDate" value={data.endDate} onChange={handleChange} class="form-control customInput" id="floatingInput" />
         </div>
 
-        <div class="mb-3">
-          <label for="floatingInput">Description</label>
-          <textarea type="text" name="description" value={data.description} onChange={handleChange} class="form-control customInput w-100" id="floatingInput" />
+        <div className="col-md-6 mb-3">
+          <label className="form-label">End Date</label>
+          <input type="date" name="endDate" value={data.endDate} onChange={handleChange} className="form-control customInput" id="floatingInput" />
         </div>
 
+        <div className="col-md-12 mb-3">
+          <label className="form-label">Description</label>
+          <textarea
+            name="description"
+            value={data.description}
+            onChange={handleChange}
+            className="form-control"
+            rows="3"
+            placeholder="Enter task details..."
+          />
+        </div>
         <button className="custombtn rounded text-light btn" onClick={handleSubmit}>Add Task</button>
       </div>
+      <ToastContainer />
     </div>
   );
 };

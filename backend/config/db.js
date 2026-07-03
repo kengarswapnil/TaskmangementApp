@@ -7,7 +7,7 @@ const sequelize = new Sequelize(
   process.env.DB_PASS,
   {
     host: process.env.DB_HOST,
-    dialect: "mysql",
+    dialect: "mysql",   
   },
 );
 
@@ -16,7 +16,7 @@ async function ConnectDB(params) {
     await sequelize.authenticate();
     console.log("Database Connected Sucessfully");
 
-    await sequelize.sync({ alter: true });
+    await sequelize.sync({alter:false});
     console.log("Models syncronized Sucessfully");
   } catch (error) {
     console.log(error);

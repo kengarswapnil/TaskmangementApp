@@ -8,7 +8,15 @@ const CreateTask = async (req, res) => {
     if (!title || !description || !startDate || !endDate) {
       return res
         .status(400)
-        .send({ msg: "All fields Are required", success: true });
+        .send({ msg: "All fields Are required", success: false });
+    }
+
+    const existingTask = await Task.findOne({ where: { title } });
+
+    if (existingTask) {
+      return res
+        .status(400)
+        .send({ msg: " Task already Exists", success: false });
     }
 
     if (new Date(endDate) < new Date(startDate)) {
@@ -36,7 +44,7 @@ const getAllTask = async (req, res) => {
   try {
     const tasks = await Task.findAll();
     if (tasks.length === 0) {
-      res.status(400).send({ tasks:[] });
+      res.status(400).send({ tasks: [] });
     }
     res.status(200).send({ tasks });
   } catch (error) {
@@ -50,7 +58,7 @@ const getSingleTask = async (req, res) => {
     const { id } = req.params;
     const index = await Task.findByPk(id);
     if (!index) {
-     return res.status(400).send({ msg: "Task not found" });
+      return res.status(400).send({ msg: "Task not found" });
     }
     res.status(200).send({ index });
   } catch (error) {
@@ -100,13 +108,13 @@ const GetUpdateTask = async (req, res) => {
   }
 };
 
-// delete tasks
+// delete tasksg
 const DeleteTask = async (req, res) => {
   try {
     const { id } = req.params;
     const task = await Task.findByPk(id);
     if (!task) {
-      res.status(400).send({ msg: "Task Not Found", success: false });
+      return res.status(400).send({ msg: "Task Not Found", success: false });
     }
     await task.destroy();
     res.status(200).send({ msg: "Task Deleted Successfully", success: true });
@@ -194,21 +202,33 @@ const getTaskStatus = async (req, res) => {
 
 const getTaskbyMonths = async (req, res) => {
   try {
-    const {month,year} = req.query;
-    if(!month || !year){
-      res.status(400).send({msg:"All Fields required"})
+    const { month, year } = req.query;
+    if (!month || !year) {
+      res.status(400).send({ msg: "All Fields required" });
     }
 
     const tasks = await Task.findAll({
-      where:{startDate:{
-        [sequelize.between]:[
-          new Date(year,month - 1 , 1),
-          new Date(year,month,0)
-        ],
-      },},
-    })
-    res.status(200).send({data:tasks})
+      where: {
+        startDate: {
+          [sequelize.between]: [
+            new Date(year, month - 1, 1),
+            new Date(year, month, 0),
+          ],
+        },
+      },
+    });
+    res.status(200).send({ data: tasks });
   } catch (error) {
+    res.status(500).send({ msg: "Server Error" });
+  }
+};
+
+const getTotalTask = async (req, res) => {
+  try {
+    const count = await Task.count();
+    res.status(200).send({ TotalTasks: count });
+  } catch (error) {
+    console.log(error);
     res.status(500).send({ msg: "Server Error" });
   }
 };
@@ -224,5 +244,6 @@ module.exports = {
   getPendingTasks,
   getInprogressTask,
   getTaskStatus,
-  getTaskbyMonths
+  getTaskbyMonths,
+  getTotalTask,
 };

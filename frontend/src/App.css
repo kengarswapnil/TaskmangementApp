@@ -1,95 +1,72 @@
-.customLogin{
-   height: auto;
-   width: 350px;
-   border: 1px solid black;
-   padding: 20px;
-   margin: auto;
-   box-shadow:
+.customLogin {
+  height: auto;
+  width: 350px;
+  border: 1px solid black;
+  padding: 20px;
+  margin: auto;
+  box-shadow:
     0 10px 30px rgba(0, 0, 0, 0.08),
     0 4px 10px rgba(0, 0, 0, 0.04);
 
   border: 1px solid #eef1f6;
 }
 
-body{
+body {
   font-family: "Saira", sans-serif;
 }
 
-
-.customColor{
+.customColor {
   color: #5b6df8;
 }
 
-
-.customLogo{
+.customLogo {
   height: 70px;
   width: 150px;
 }
 
-.customFont{
+.customFont {
   font-size: 20px;
-  color: #25335A;
+  color: #25335a;
 }
 
-.customBtn{
-  background: linear-gradient(
-    90deg,
-    #5b6df8 0%,
-    #6677ff 100%
-  );
- color: white;
+.customBtn {
+  background: linear-gradient(90deg, #5b6df8 0%, #6677ff 100%);
+  color: white;
 }
 
-
-.customLogin button{
-   /* Blue Gradient */
-  background: linear-gradient(
-    90deg,
-    #5b6df8 0%,
-    #6677ff 100%
-  );
+.customLogin button {
+  /* Blue Gradient */
+  background: linear-gradient(90deg, #5b6df8 0%, #6677ff 100%);
 
   transition: 0.3s;
 }
 
-
-.customInput{
+.customInput {
   width: 350px;
 }
 
-.custombtn{
- background: linear-gradient(
-    90deg,
-    #5b6df8 0%,
-    #6677ff 100%
-  );
-
+.custombtn {
+  background: linear-gradient(90deg, #5b6df8 0%, #6677ff 100%);
 }
 
-
-.CustomCard{
+.CustomCard {
   height: 100px;
   width: 150px;
   border: 1px solid black;
   margin: 10px;
-   box-shadow:
+  box-shadow:
     0 10px 30px rgba(0, 0, 0, 0.08),
     0 4px 10px rgba(0, 0, 0, 0.04);
 
   border: 1px solid #eef1f6;
 }
 
-
- .FaUsersColor{
-   color: linear-gradient(
-    90deg,
-    #5b6df8 0%,
-    #6677ff 100% 
-  ) ;
+.FaUsersColor {
+  color: linear-gradient(90deg, #5b6df8 0%, #6677ff 100%);
 }
 
 .custom-card {
-  width: 260px;
+  width: 200px;
   height: 120px;
   background: white;
   border-radius: 12px;
@@ -114,4 +91,203 @@ body{
   margin: 0;
   font-size: 16px;
   color: #333;
+}
+
+.customUser {
+  text-decoration: none !important;
+}
+
+.customProfile {
+  height: 50px;
+  width: 50px;
+  /* border: 1px solid black; */
+  border-radius: 50%;
+  text-align: center;
+  justify-content: center;
+}
+
+.customProfile2{
+   height: 30px;
+  width: 30px;
+  /* border: 1px solid black; */
+  border-radius: 50%;
+  text-align: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+.profile-card {
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.profile-header {
+  background: #EFF6FF;
+}
+
+.text-main {
+  color: #1F2937;
+}
+
+.text-muted {
+  color: #6B7280;
+}
+
+.icon-bg{
+ background: #DBEAFE;
+color: #1D4ED8;
+}
+
+
+
+.task-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  margin: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.task-card:hover {
+  transform: translateY(-5px);
+}
+
+.task-title {
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #1e293b;
+}
+
+.label {
+  font-weight: 600;
+  color: #475569;
+}
+
+p {
+  margin: 8px 0;
+}
+
+/* Status */
+.status-badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  margin-left: 8px;
+}
+
+/* dynamic status colors */
+.status-badge.Pending {
+  background: #fef3c7;
+  color: #f59e0b;
+}
+
+.status-badge.Inprogress {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+.status-badge.Completed {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.status-badge.admin{
+   background: #dcfce7;
+  color: #16a34a;
+}
+
+.status-badge.user{
+ background-color: #1e293b;
+color: #cbd5f5;
+}
+
+/* dropdown */
+.status-dropdown {
+  width: 160px;
+  margin-left: 10px;
+}
+
+/* Members */
+.member-name {
+  margin-left: 5px;
+  color: #0f172a;
+}
+
+/* Buttons */
+.btn-group-custom {
+  margin-top: 15px;
+}
+
+.btn {
+  margin-right: 10px;
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Button styles */
+.delete-btn {
+  background: #ef4444;
+  color: white;
+}
+
+.assign-btn {
+  background: #3b82f6;
+  color: white;
+}
+
+.edit-btn {
+  background: #facc15;
+}
+
+.save-btn {
+  background: #22c55e;
+  color: white;
+}
+
+.cancel-btn {
+  background: #94a3b8;
+  color: white;
+}
+
+
+tr:hover {
+  background-color: #f8f9fa;
+  transition: 0.2s;
+}
+
+
+/* body {
+  overflow: hidden;
+} */
+
+
+.pending{
+ background-color: #FFC107;
+}
+
+.inprogress{
+  background-color: #FFC107;
+}
+
+
+.completed{
+  background-color: #198754;
+}
+
+
+.customBG{
+  background-color: #f8f9fa;
+}
+
+
+.custom-bg{
+  background-color: #dce2de;
+  /* border: 1px solid black ; */
+  padding: 20px;
+  border-radius: 10px;
 }
