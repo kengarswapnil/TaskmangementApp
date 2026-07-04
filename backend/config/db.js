@@ -67,4 +67,4 @@ async function ConnectDB() {
 
 ConnectDB();
 
-// module.exports = { sequelize };
+module.exports = { sequelize };
