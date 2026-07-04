@@ -26,7 +26,7 @@
 // ConnectDB();
 
 // module.exports = { sequelize };
-////yutututuyututututututututut
+
 
 const { Sequelize } = require("sequelize");
 require("dotenv").config();
@@ -67,4 +67,6 @@ async function ConnectDB() {
 
 ConnectDB();
 
+
 module.exports = { sequelize };
+
