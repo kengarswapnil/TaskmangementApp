@@ -85,9 +85,16 @@ const getProfile = async (req, res) => {
       attributes: { exclude: ["password", "createdAt", "updatedAt"] },
     });
 
-    if (loggedUser.ProfileImg) {
-      loggedUser.ProfileImg = `http://localhost:${process.env.PORT}/${loggedUser.ProfileImg}`;
-    }
+    // if (loggedUser.ProfileImg) {
+    //   loggedUser.ProfileImg = `http://localhost:${process.env.PORT}/${loggedUser.ProfileImg}`;
+    // }
+
+const BASE_URL = "https://taskmangementapp-jzf0.onrender.com";
+
+if (loggedUser.ProfileImg) {
+  loggedUser.ProfileImg = `${BASE_URL}/${loggedUser.ProfileImg}`;
+}
+    
     res.status(200).send({ loggedUser: loggedUser });
   } catch (error) {
     console.log("ERROR:", error);
